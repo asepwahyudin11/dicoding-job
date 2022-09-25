@@ -96,6 +96,19 @@
                 <div class="mt-4">
                     {!! $job->description !!}
                 </div>
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h4>Tertarik?</h4>
+                        <ul>
+                            <li>Kirimkan CV dan Portofolio terbaik kamu.</li>
+                            <li>Ceritakan ke kami pengalaman apa saja yang kamu miliki. Tunjukan karya-karya kamu di bidang pemrograman atau pengembangan aplikasi.</li>
+                            <li>Buatlah sebuah artikel yang membahas tentang pemrograman atau teknologi yang sedang kamu minati.</li>
+                            <li>Kamu dapat mencantumkan link ke artikel ini di inputan Cover Letter ketika memasukkan lamaran untuk lowongan ini.</li>
+                            <li>Berapa harapan gaji kamu bila bergabung dengan Dicoding Indonesia?</li>
+                            <li>Mohon untuk mencantumkan nilainya di inputan Cover Letter.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             <div class="col-2"></div>
         </div>
