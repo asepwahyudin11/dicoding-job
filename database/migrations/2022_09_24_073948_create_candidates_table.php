@@ -21,7 +21,8 @@ class CreateCandidatesTable extends Migration
             $table->string('phone_number', 25);
             $table->text('cover_letter');
             $table->string('link_cv', 225);
-            $table->string('link_portofolio', 225);
+            $table->string('link_portofolio', 225)->nullable();
+            $table->string('link_another', 225)->nullable();
             $table->string('skills', 225);
             $table->timestamp('uploaded_at');
         });

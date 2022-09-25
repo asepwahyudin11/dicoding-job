@@ -37,11 +37,11 @@
         </div>
     </nav>
 
-    <div class="bg-white text-dark" style="border-bottom: 1px solid #E4E4E7">
+    <div class="bg-white text-dark" style="border-top: 1px solid #E4E4E7">
         <div class="container" style="padding-top:50px;padding-bottom:50px;">
             <div class="container">
                 <div class="row">
-                    <div class="col-8">
+                    <div class="col-5">
                         <div class="row">
                             <div class="col-12">
                                 <a class="text-dark" href="{{ route('job.list') }}" style="font-size:14px">Semua daftar pekerjaan <i class="fa fa-external-link" aria-hidden="true"></i></a>
@@ -62,11 +62,46 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="d-flex" style="padding:60px 0px">
-                            <div style="padding: 0px 10px"><button type="button" class="btn btn-light rounded-0"><i class="fa fa-share-alt" aria-hidden="true"></i></button></div>
-                            <div style="padding: 0px 10px"><button type="button" class="btn btn-light rounded-0"><i class="fa fa-heart-o" aria-hidden="true"></i></button></div>
-                            <div style="padding: 0px 10px"><a href="{{ route('job.form', ['id' => $job->id]) }}"><button type="button" class="btn btn-dark rounded-0">Kirim Lamaran</button></a></div>
+                    <div class="col-7 mt-3">
+                        <h3>Membuat Lamaran</h3>
+                        <div class="mb-3 mt-3">
+                            <label class="form-label">Nama</label>
+                            <input type="text" class="form-control" name="name" id="name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email Untuk Dihubungi</label>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">No Telepon Untuk Dihubungi</label>
+                            <input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="+6208......">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Cover Letter</label>
+                            <textarea class="form-control" name="cover_letter" id="cover_letter" rows="5"></textarea>
+                            <span style="font-size:10px">Silahkan masukkan kata pengantar untuk lamaran ini dan mengapa Anda adalah kandidat yang cocok untuk lamaran ini.</span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Link Ke CV</label>
+                            <input type="link" class="form-control" name="link_cv" id="link_cv" placeholder="https://myawesome.cv">
+                            <span style="font-size:10px">Silahkan memasukkan link ke CV/Porftolio yang Anda miliki. Contoh: link ke dokumen CV yang Anda simpan di Google Docs atau link ke profile github.com dsb.</span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Link Ke Portofolio</label>
+                            <input type="link" class="form-control" name="link_portofolio" id="link_portofolio" placeholder="https://myawesome.pdf">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Link Ke File Lain</label>
+                            <input type="link" class="form-control" name="link_another" id="link_another" placeholder="https://myawesome.pdf">
+                            <span style="font-size:10px">Anda dapat memasukkan link ke dokumen / sumber pendukung untuk lamaran ini.</span>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Keahlian</label>
+                            <input type="text" class="form-control" name="skill" id="skill">
+                            <span style="font-size:10px">Pisah keahlian dengan koma. <b>Contoh: Javascript, Android, Java, Kotlin, dll</b></span>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-dark rounded-0">Kirim Lamaran</button>
                         </div>
                     </div>
                 </div>
@@ -74,21 +109,7 @@
         </div>
     </div>
 
-    <div class="container pt-5 pb-5">
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
-                <div>
-                    <button class="btn-description">{{ $job->type->name }}</button>
-                    <button class="btn-description">{{ $job->city->name }}</button>
-                </div>
-                <div class="mt-4">
-                    {!! $job->description !!}
-                </div>
-            </div>
-            <div class="col-2"></div>
-        </div>
-
+    <div class="container pb-5">
         @include('partials/footer')
     </div>
 @endsection

@@ -42,16 +42,4 @@ class JobTest extends TestCase
         $response->assertSee('Kirim Lamaran');
         $response->assertViewHas('job');
     }
-
-    /**
-     * Feature test for apply job pricess.
-     *
-     * @return void
-     */
-    public function testApplyJobProcess()
-    {
-        $response = $this->post('/job/1/apply');
-
-        $response->assertCreated();
-    }
 }
