@@ -56,6 +56,12 @@
                                 <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>
                             </div>
                         @endif
+                        @if (session('success'))
+                            <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+                                {{ session('success') }}
+                                <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        @endif
                         <div class="mt-4" id="job_result">
                             
                         </div>

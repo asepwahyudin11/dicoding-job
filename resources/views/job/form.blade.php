@@ -64,45 +64,54 @@
                     </div>
                     <div class="col-7 mt-3">
                         <h3>Membuat Lamaran</h3>
-                        <div class="mb-3 mt-3">
-                            <label class="form-label">Nama</label>
-                            <input type="text" class="form-control" name="name" id="name">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Email Untuk Dihubungi</label>
-                            <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">No Telepon Untuk Dihubungi</label>
-                            <input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="+6208......">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Cover Letter</label>
-                            <textarea class="form-control" name="cover_letter" id="cover_letter" rows="5"></textarea>
-                            <span style="font-size:10px">Silahkan masukkan kata pengantar untuk lamaran ini dan mengapa Anda adalah kandidat yang cocok untuk lamaran ini.</span>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Link Ke CV</label>
-                            <input type="link" class="form-control" name="link_cv" id="link_cv" placeholder="https://myawesome.cv">
-                            <span style="font-size:10px">Silahkan memasukkan link ke CV/Porftolio yang Anda miliki. Contoh: link ke dokumen CV yang Anda simpan di Google Docs atau link ke profile github.com dsb.</span>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Link Ke Portofolio</label>
-                            <input type="link" class="form-control" name="link_portofolio" id="link_portofolio" placeholder="https://myawesome.pdf">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Link Ke File Lain</label>
-                            <input type="link" class="form-control" name="link_another" id="link_another" placeholder="https://myawesome.pdf">
-                            <span style="font-size:10px">Anda dapat memasukkan link ke dokumen / sumber pendukung untuk lamaran ini.</span>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Keahlian</label>
-                            <input type="text" class="form-control" name="skill" id="skill">
-                            <span style="font-size:10px">Pisah keahlian dengan koma. <b>Contoh: Javascript, Android, Java, Kotlin, dll</b></span>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-dark rounded-0">Kirim Lamaran</button>
-                        </div>
+                        <form method="POST" id="form2" action="{{ URL::route('job.apply', $job->id) }}">
+                            {!! csrf_field() !!}
+                            @if (session('error'))
+                                <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+                                    {{ session('error') }}
+                                    <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            @endif
+                            <div class="mb-3 mt-3">
+                                <label class="form-label">Nama</label>
+                                <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email Untuk Dihubungi</label>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com" value="{{ old('email') }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">No Telepon Untuk Dihubungi</label>
+                                <input type="text" class="form-control" name="phone_number" id="phone_number" placeholder="+6208......" value="{{ old('phone_number') }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Cover Letter</label>
+                                <textarea class="form-control" name="cover_letter" id="cover_letter" rows="5" required>{{ old('cover_letter') }}</textarea>
+                                <span style="font-size:10px">Silahkan masukkan kata pengantar untuk lamaran ini dan mengapa Anda adalah kandidat yang cocok untuk lamaran ini.</span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Link Ke CV</label>
+                                <input type="link" class="form-control" name="link_cv" id="link_cv" placeholder="https://myawesome.cv" value="{{ old('link_cv') }}" required>
+                                <span style="font-size:10px">Silahkan memasukkan link ke CV/Porftolio yang Anda miliki. Contoh: link ke dokumen CV yang Anda simpan di Google Docs atau link ke profile github.com dsb.</span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Link Ke Portofolio</label>
+                                <input type="link" class="form-control" name="link_portofolio" id="link_portofolio" placeholder="https://myawesome.pdf" value="{{ old('link_portofolio') }}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Link Ke File Lain</label>
+                                <input type="link" class="form-control" name="link_another" id="link_another" placeholder="https://myawesome.pdf" value="{{ old('link_another') }}">
+                                <span style="font-size:10px">Anda dapat memasukkan link ke dokumen / sumber pendukung untuk lamaran ini.</span>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Keahlian</label>
+                                <input type="text" class="form-control" name="skills" id="skills" value="{{ old('skills') }}" required>
+                                <span style="font-size:10px">Pisah keahlian dengan koma. <b>Contoh: Javascript, Android, Java, Kotlin, dll</b></span>
+                            </div>
+                            <div>
+                                <button type="submit" class="btn btn-dark rounded-0" value="save">Kirim Lamaran</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -22,3 +22,4 @@ Route::get('/job/list', 'JobController@list')->name('job.list');
 Route::post('/job/load', 'JobController@load')->name('job.load');
 Route::get('/job/{id}/description', 'JobController@description')->name('job.description');
 Route::get('/job/{id}/form', 'JobController@form')->name('job.form');
+Route::post('/job/{id}/apply', 'JobController@apply')->name('job.apply');
