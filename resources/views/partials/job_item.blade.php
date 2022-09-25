@@ -7,7 +7,7 @@
                     <img src="{{ $job->company_logo }}" width="100%" style="border-radius:5px" />
                 </div>
                 <div class="col-7">
-                    <h5 class="mt-2">{{ $job->title }}</h5>
+                    <a class="job-link" href="{{ route('job.description', ['id' => $job->id]) }}"><h5 class="mt-2">{{ $job->title }}</h5></a>
                     <div class="text-secondary mt-3" style="font-size:14px">
                         <span style="padding-right:10px"><i class="fa fa-building" aria-hidden="true"></i> {{ $job->company_name }}</span>
                         <span>{{ $job->type->name }}</span>

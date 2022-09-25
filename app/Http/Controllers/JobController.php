@@ -63,4 +63,15 @@ class JobController extends Controller
 
         return view('partials.job_item', $data);
     }
+
+    public function description($id) 
+    {
+        $data['job'] = Job::find($id);
+
+        if (empty($data['job'])) {
+            return redirect('/job/list')->with('error', 'Pekerjaan tidak dapat ditemukan, kesalahan pada data!');
+        } else {
+            return view('job.description', $data);
+        }
+    }
 }

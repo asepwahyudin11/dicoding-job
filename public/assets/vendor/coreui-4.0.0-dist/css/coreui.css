@@ -3194,8 +3194,8 @@ textarea.form-control-lg {
 }
 
 .btn-dark {
-  --cui-btn-bg: #4f5d73;
-  --cui-btn-border-color: #4f5d73;
+  --cui-btn-bg: #18181B;
+  --cui-btn-border-color: #18181B;
   --cui-btn-color: rgba(255, 255, 255, 0.87);
   --cui-btn-hover-bg: #697588;
   --cui-btn-hover-border-color: #616d81;
