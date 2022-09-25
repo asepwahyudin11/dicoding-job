@@ -1,0 +1,495 @@
+p,h1,h2,h3,h4,h5,h6,a,button{
+	font-family: 'Roboto', sans-serif;
+}
+
+
+/* All Header Area */
+.navbar{
+	padding-top: 0px!important;
+	padding-bottom: 0px!important;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 0px 2px 1px rgb(133, 133, 133) !important;
+}
+
+.navbar-nav a .nav-item {
+	padding: 15px 15px;
+}
+
+.navbar-nav a {
+	text-decoration: none;
+	color: #000;
+}
+
+.navbar-nav a:hover {
+	background-color: #CC66CC;
+	transition: 0.25s;
+}
+
+.btn-theme, .btn-theme:active, .btn-theme:visited{
+	color: #fff !important;
+	background-color: #48025A;
+}
+.btn-theme:hover{
+	background-color: #620263 !important;
+	transition: 0.25s;
+}
+
+
+/* Homepage Welcome Area */
+.sec-intro{
+	background-color: #620263;
+}
+.intro-p{
+	font-size: 20px;
+}
+.intro-img{
+	max-height: 400px;
+}
+#countdown-days, #countdown-hours, #countdown-minutes, #countdown-seconds{
+	display: inline;
+	border-radius: 10px;
+	background-color: #fff;
+	font-size: 30px;
+	padding: 15px;
+	color: #620263;
+}
+.countdown{
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+	font-size: 30px;
+}
+
+
+/* Homepage Keuntungan Area */
+.sec-intro2{
+	background-color: #fff;
+}
+.ex-img{
+	max-width: 400px;
+	min-height: 500px;
+	background-color: #E3E3E3;
+	border-radius: 5px;
+}
+.intro2-title{
+	color: #000;
+	font-weight: bold;
+	float: left;
+}
+.check-symbol{
+	padding: 5px 7px;
+	border-radius: 100%;
+	background-color: #620263;
+	color: #fff;
+}
+.intro2-konten{
+	/* float: left; */
+	/* margin: 0px 45px; */
+	padding-left: 3.5em;
+	padding-top: 0.5em;
+	text-align: justify;
+}
+.text-justify{
+	text-align: justify;
+}
+
+
+/* Homepage Tutorial Area */
+.grey-text{
+	color: #a0a0a0;
+	font-weight: normal;
+}
+.content2-img{
+	width: 100%;
+}
+.sec-intro3{
+	background-color: #f5f5f5;
+}
+.intro3-img{
+	padding: 10%;
+}
+.user-img{
+	width: 35%;
+}
+.owl-carousel .owl-dots {
+    text-align: center;
+    margin-top: 10px;
+}
+.owl-carousel .owl-dots .owl-dot {
+	width: 20px;
+	height: 3px;
+	margin: 5px;
+	background: rgba(255, 255, 255, 0.2);
+	position: relative;
+	border-radius: 1px;
+}
+.owl-carousel .owl-dots .owl-dot:hover, .owl-carousel .owl-dots .owl-dot:focus {
+	outline: none !important;
+}
+.owl-carousel .owl-dots .owl-dot.active {
+	background: #fff;
+}
+.carousel-control-next, .carousel-control-prev{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	z-index: 1;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	width: 15%;
+	padding: 0;
+	color: #fff;
+	text-align: center;
+	background: none;
+	border: 0;
+	opacity: .5;
+	-webkit-transition: opacity .15s ease;
+	transition: opacity .15s ease;
+}
+
+
+/* Homepage Video Area */
+.item{
+	background-color: #fff;
+	padding: 10px;
+	border: 1px solid #e9e9e9;
+	box-shadow: 10px 10px 5px 5px #e9e9e9;
+	border-radius: 5%;
+}
+
+
+/* Homepage Testimoni Area */
+.sec-intro5{
+	background-color: #e9e9e9;
+}
+.purple-text{
+	color: #620263;
+}
+.sec-intro5{
+	background-color: #f5f5f5;
+}
+
+
+/* Homepage Partnership Area */
+.sec-intro4{
+	background-color: #fff;
+}
+.intro4-title{
+	color: #000;
+	font-weight: bold;
+}
+.intro4-img{
+	padding: 10%;
+	border: 1px solid #f5f5f5;
+	box-shadow: 10px 10px 5px 5px #f5f5f5;
+}
+.intro4-rounded{
+	border-radius: 100%;
+}
+.supported-by-img{
+	width: 20rem;
+}
+
+.intro5-img{
+	border: 1px solid #f5f5f5;
+	box-shadow: 10px 10px 5px 5px #f5f5f5;
+}
+
+
+/* Price Page Daftar 1 Area */
+.btn-daftar,.btn-daftar:active,.btn-daftar:visited{
+	padding: 4px 45px;
+	background-color: #F8D311;
+	border-radius: 50px;
+}
+.btn-daftar:hover{
+	background-color: #f8d211d3;
+}
+.btn-daftar a{
+	text-decoration: none;
+	font-size: 26px;
+	font-weight: bold;
+	color: #620263;
+}
+.btn-daftar a:hover{
+	color: #620263;
+	background-color: #d4b30ed3;
+}
+
+
+/* Price Area */
+.title3 {
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+}
+.sec-price{
+	background-color: #F7F7FF;
+}
+.card-title{
+	color: #620263;
+	font-weight: bold;
+}
+.card-subtitle{
+	font-size: 32px;
+	font-weight: bold;
+}
+.btn-lihatfitur{
+	width:100%;
+	color: #fff;
+	background-color: #48025A;
+	border-radius: 10px;
+}
+.btn-lihatfitur:hover{
+	background-color: #eee;
+}
+.card{
+	box-shadow: 0px 3px 1px rgb(133, 133, 133);
+}
+
+
+
+/* Feature Area */
+.sec-intro1{
+	background-color: #F7F7FF;
+}
+.title1 {
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+	margin-top: 20px;
+}
+.intro3-subtitle {
+	color: black;
+	font-weight: bold;
+}
+.intro2-img {
+	max-height: 300px;
+	max-height: 500px;
+	margin-top: 20px;
+	margin-bottom: 80px;
+}
+
+
+/* Price Page & Feature Page: Daftar 2 Area */
+.sec-beforefoot > h1{
+	color:#000;
+}
+.sec-beforefoot {
+	background-color: #ffffff;
+}
+.title2 {
+	color: rgb(0, 0, 0);
+	font-weight: bold;
+}
+.btn-daftar2,.btn-daftar2:active,.btn-daftar2:visited{
+	padding: 4px 45px;
+	background-color: #48025A;
+	border-radius: 50px;
+}
+.btn-daftar2:hover{
+	background-color: #620263;
+}
+.btn-daftar2 a{
+	text-decoration: none;
+	font-size: 26px;
+	font-weight: bold;
+	color: #fff;
+}
+.btn-daftar2 a:hover{
+	color: #fff;
+}
+
+
+/* Footer Area */
+.copyright{
+	background-color: #48025A;
+}
+.sec-footer{
+	background-color: #996699;
+}
+.title-foot-menu{
+	color:#fff;
+	font-weight: bold;
+}
+.foot-menu{
+	list-style-type: none;
+	margin: 0px !important;
+	padding: 0px !important;
+}
+.foot-menu > li{
+	margin:0px;
+	padding:0px;
+}
+.foot-menu > li > a{
+	text-decoration: none;
+	color: #fff;
+	font-size: 16px;
+}
+.header-footer{
+	background-color: #996699;
+	color: #fff;
+}
+.ex-img-footer{
+	background-color: #fff;
+	border-radius: 5px;
+}
+.ex-img-footer img{
+	width: 35px;
+}
+.main-footer{
+	background-color: #48025A;
+	height: 3em;
+	color: #fff;
+	font-weight: 300;
+}
+
+.msg-body{
+	min-height: 30rem;
+	max-height: 30rem;
+}
+.msg-rep{
+	min-height: 4rem;
+	max-height: 4rem;
+}
+textarea {
+	resize: none;
+ }
+.last-reply-wrapper{
+	margin-top: 1em;
+}
+
+
+.btn-service{
+	margin-top: 1em;
+	color: #fff;
+}
+.btn-service:hover{
+	color: #fff;
+}
+.btn-tokopedia{
+	background: #065723;
+}
+.btn-shopee{
+	background: #c9701d;
+}
+.btn-blibli{
+	background: #0b5bd3;
+}
+.btn-jdid{
+	background: #992020;
+}
+.btn-lazada{
+	background: #1c1692;
+}
+
+/*************************************************
+AREA RESPONSIVE DESIGN
+**************************************************/
+
+@media only screen and (max-width: 600px) {
+	/* For mobile: */
+	.intro3-title {
+		color: #620263;
+		font-weight: bold;
+		margin-top: 0px;
+	}
+
+	.content-desktop-only {
+		display:none;
+	}
+
+	.content-mobile-tablet {
+		display:block;
+	}
+
+	.img-mobile-tablet {
+		width:75%;
+		padding: 5px 0px;
+	}
+
+	.space-mobile-tablet {
+		margin-top: 30px;
+	}
+
+	.text-center-mobile{
+		text-align: center;
+	}
+
+	.mb-mobile-1{ margin-bottom: 10px; }
+	.mb-mobile-2{ margin-bottom: 20px; }
+	.mb-mobile-3{ margin-bottom: 30px; }
+	.mb-mobile-4{ margin-bottom: 40px; }
+	.mb-mobile-5{ margin-bottom: 50px; }
+	.mb-mobile-6{ margin-bottom: 60px; }
+	.mb-mobile-7{ margin-bottom: 70px; }
+}
+
+@media only screen and (min-width: 600px) {
+	/* For tablets: */
+	.intro3-title {
+		color: #620263;
+		font-weight: bold;
+		margin-top: 20px;
+	}
+
+	.content-desktop-only {
+		display:none;
+	}
+
+	.content-mobile-tablet {
+		display:block;
+	}
+
+	.img-mobile-tablet {
+		width:75%;
+		padding: 10px 0px;
+	}
+
+	.space-mobile-tablet {
+		margin-top: 30px;
+	}
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+	.intro3-title {
+		color: #620263;
+		font-weight: bold;
+		margin-top: 60px;
+	}
+
+	.content-desktop-only {
+		display:block;
+	}
+
+	.content-mobile-tablet {
+		display:none;
+	}
+
+	.pl-desktop-1 { padding-left: 10px; }
+	.pl-desktop-2 { padding-left: 20px; }
+
+	.space-mobile-tablet {
+		margin-top: 0px;
+	}
+
+	.mt-dekstop-1 { margin-top: 10px; }
+	.mt-dekstop-2 { margin-top: 20px; }
+	.mt-dekstop-3 { margin-top: 30px; }
+	.mt-dekstop-4 { margin-top: 40px; }
+	.mt-dekstop-5 { margin-top: 50px; }
+	.mt-dekstop-6 { margin-top: 60px; }
+	.mt-dekstop-7 { margin-top: 70px; }
+}
+
+.time_label {
+		margin-top: 10px;
+    font-size: 16px;
+		text-align: center;
+}

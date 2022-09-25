@@ -1,0 +1,19 @@
+.box-status {
+    border: 0.5px solid #9da5b1;
+    border-radius: 5px;
+    padding: 5px 15px;
+}
+
+.image-circle {
+    border-radius: 50px;
+    border: 2px solid #3B82F6;
+}
+
+.img-home-circle {
+    border-radius: 50px;
+}
+
+.paper-rounded {
+    background: #fff;
+    border-radius: 25px 25px 0px 0px;
+}
