@@ -13,4 +13,14 @@ class City extends Model
     protected $fillable = [
         'name',
     ];
+
+    /**
+     * Relation to job.
+     *
+     * @return HasMany
+     */
+    public function job()
+    {
+        return $this->hasMany(Job::class, 'city_id', 'id');
+    }
 }

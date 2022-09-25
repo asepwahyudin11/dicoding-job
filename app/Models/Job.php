@@ -23,4 +23,35 @@ class Job extends Model
         'created_email',
         'closed_at'
     ];
+
+    /**
+     * Relation to type.
+     *
+     * @return BelongsTo
+     */
+    public function type()
+    {
+        return $this->belongsTo(\App\Models\Type::class);
+    }
+
+    /**
+     * Relation to city.
+     *
+     * @return BelongsTo
+     */
+    public function city()
+    {
+        return $this->belongsTo(\App\Models\City::class);
+    }
+
+    /**
+     * Relation to experience.
+     *
+     * @return BelongsTo
+     */
+    public function experience()
+    {
+        return $this->belongsTo(\App\Models\Experience::class);
+    }
+
 }

@@ -51,46 +51,23 @@
                     <div class="col-8">
                         <h3>Daftar Pekerjaan Terbaru</h3>
                         <div class="mt-4" id="job_result">
-                            <!-- Section Looping -->
-                            <div class="card mt-3">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-2">
-                                            <img src="/company/sample1.jpeg" width="100%" style="border-radius:5px" />
-                                        </div>
-                                        <div class="col-7">
-                                            <h5 class="mt-2">Back-End Engineer</h5>
-                                            <div class="text-secondary mt-3" style="font-size:14px">
-                                                <span style="padding-right:10px"><i class="fa fa-building" aria-hidden="true"></i> Dicoding</span>
-                                                <span>Full-time</span>
-                                            </div>
-                                            <div class="text-secondary mt-1" style="font-size:14px">
-                                                <span style="padding-right:10px"><i class="fa fa-map-marker" aria-hidden="true"></i> Bandung</span>
-                                                <span><i class="fa fa-briefcase" aria-hidden="true"></i> 1-3 tahun pengalaman</span>
-                                            </div>
-                                        </div>
-                                        <div class="col-3 text-secondary" style="font-size:14px;text-align:right">
-                                            <div class="mt-2">Dibuat pada 15 Juni 2022</div>
-                                            <div>Dibuat pada 15 Juli 2022</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     <div class="col-4">
+                        {{ csrf_field() }}
                         <div class="input-group">
                             <span class="input-group-text bg-dark text-white"><i class="fa fa-search" aria-hidden="true"></i></span>
-                            <input type="text" class="form-control" placeholder="Pekerjaan apa yang sedang Anda cari?">
+                            <input type="text" name="search" id="search" class="form-control" placeholder="Pekerjaan apa yang sedang Anda cari?">
                         </div>
 
                         <div class="card mt-3">
                             <div class="card-body">
                                 <h4>Keahlian</h4>
-                                <div class="mt-3">
+                                <div id="job-skill" class="mt-3">
                                     @foreach ($skills as $skill)
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{ $skill->id }}" id="skill-{{ $skill->id }}">
+                                            <input class="form-check-input cskill" type="checkbox" name="skill" value="{{ $skill->id }}" id="skill-{{ $skill->id }}" checked>
                                             <label class="form-check-label" for="skill-{{ $skill->id }}">
                                                 {{ $skill->name }}
                                             </label>
@@ -103,10 +80,10 @@
                         <div class="card mt-3">
                             <div class="card-body">
                                 <h4>Tipe Pekerjaan</h4>
-                                <div class="mt-3">
+                                <div id="job-type" class="mt-3">
                                     @foreach ($types as $type)
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{ $type->id }}" id="type-{{ $type->id }}">
+                                            <input class="form-check-input ctype" type="checkbox" name="type" value="{{ $type->id }}" id="type-{{ $type->id }}" checked>
                                             <label class="form-check-label" for="skill-{{ $type->id }}">
                                                 {{ $type->name }}
                                             </label>
@@ -119,10 +96,10 @@
                         <div class="card mt-3">
                             <div class="card-body">
                                 <h4>Kota</h4>
-                                <div class="mt-3">
+                                <div id="job-city" class="mt-3">
                                     @foreach ($cities as $city)
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{ $city->id }}" id="city-{{ $city->id }}">
+                                            <input class="form-check-input ccity" type="checkbox" name="city" value="{{ $city->id }}" id="city-{{ $city->id }}" checked>
                                             <label class="form-check-label" for="city-{{ $city->id }}">
                                                 {{ $city->name }}
                                             </label>
@@ -135,10 +112,10 @@
                         <div class="card mt-3">
                             <div class="card-body">
                                 <h4>Pengalaman</h4>
-                                <div class="mt-3">
+                                <div id="job-experience" class="mt-3">
                                     @foreach ($experiences as $experience)
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="{{ $experience->id }}" id="experience-{{ $experience->id }}">
+                                            <input class="form-check-input cexperience" type="checkbox" name="experience" value="{{ $experience->id }}" id="experience-{{ $experience->id }}" checked>
                                             <label class="form-check-label" for="experience-{{ $experience->id }}">
                                                 {{ $experience->title }}
                                             </label>
@@ -156,3 +133,111 @@
         </div>
     </div>
 @endsection
+
+@push('after_footer_stack')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        var _token = $('input[name="_token"]').val();
+
+        $(document).ready(function(){
+            console.log("Hello world");
+            loadJobList();
+        })
+
+        function loadJobList() 
+        {
+            var loader = `
+                <div class="d-flex justify-content-center mt-5">
+                    <div class="spinner-border text-dark" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            `;
+            $('#job_result').html(loader);
+            loadContent();
+
+            // Filter Skill 
+            $('#job-skill .cskill').click(function(){
+                loadContent();
+            });
+
+            // Filter Type 
+            $('#job-type .ctype').click(function(){
+                loadContent();
+            });
+
+            // Filter City 
+            $('#job-city .ccity').click(function(){
+                loadContent();
+            });
+
+            // Filter Experience 
+            $('#job-experience .cexperience').click(function(){
+                loadContent();
+            });
+
+            // Search Field 
+            $('#search').keyup(function(){
+                loadContent();
+            });
+        }
+
+        function loadContent() 
+        {
+            var choices = {};
+
+            $('.cskill:checked').each(function() {
+                if (!choices.hasOwnProperty(this.name)) 
+                    choices[this.name] = [this.value];
+                else 
+                    choices[this.name].push(this.value);
+            });
+
+            $('.ctype:checked').each(function() {
+                if (!choices.hasOwnProperty(this.name)) 
+                    choices[this.name] = [this.value];
+                else 
+                    choices[this.name].push(this.value);
+            });
+
+            $('.ccity:checked').each(function() {
+                if (!choices.hasOwnProperty(this.name)) 
+                    choices[this.name] = [this.value];
+                else 
+                    choices[this.name].push(this.value);
+            });
+
+            $('.cexperience:checked').each(function() {
+                if (!choices.hasOwnProperty(this.name)) 
+                    choices[this.name] = [this.value];
+                else 
+                    choices[this.name].push(this.value);
+            });
+
+            var searchValue = document.getElementById('search').value;
+            if (searchValue != null && searchValue != '') {
+                choices['search'] = searchValue;
+            }
+
+            console.log(choices);
+
+            var data = {
+                page: 1,
+                filter: choices,
+                _token: _token
+            };
+            $.ajax({
+                url: "{{ route('job.load') }}",
+                method: "POST",
+                data: data,
+                success:function(data) {
+                    $('#job_result').html(data);
+                },
+                error: function(data) {
+                    $('#job_result').html('Gagal Nih');
+                }
+            })
+
+        }
+    </script>
+@endpush

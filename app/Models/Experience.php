@@ -13,4 +13,14 @@ class Experience extends Model
     protected $fillable = [
         'title',
     ];
+
+    /**
+     * Relation to job.
+     *
+     * @return HasMany
+     */
+    public function job()
+    {
+        return $this->hasMany(Job::class, 'city_id', 'id');
+    }
 }

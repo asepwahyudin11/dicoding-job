@@ -17,3 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/job/list', 'JobController@list')->name('job.list');
+Route::post('/job/load', 'JobController@load')->name('job.load');
