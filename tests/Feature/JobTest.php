@@ -21,7 +21,6 @@ class JobTest extends TestCase
         $response->assertViewIs('job.list');
         $response->assertSee('Temukan lowongan yang cocok untuk Anda');
         $response->assertViewHasAll([
-            'jobs',
             'skills',
             'types',
             'cities',
