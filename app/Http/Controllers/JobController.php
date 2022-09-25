@@ -81,6 +81,8 @@ class JobController extends Controller
 
         if (empty($data['job'])) {
             return redirect('/job/list')->with('error', 'Pekerjaan tidak dapat ditemukan, kesalahan pada data!');
+        } else if($data['job']->closed_at < date('Y-m-d')) {
+            return redirect('/job/list')->with('error', 'Pekerjaan ini sudah tidak menerima lamaran!');
         } else {
             return view('job.form', $data);
         }

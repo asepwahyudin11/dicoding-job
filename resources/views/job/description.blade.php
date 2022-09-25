@@ -66,7 +66,13 @@
                         <div class="d-flex" style="padding:60px 0px">
                             <div style="padding: 0px 10px"><button type="button" class="btn btn-light rounded-0"><i class="fa fa-share-alt" aria-hidden="true"></i></button></div>
                             <div style="padding: 0px 10px"><button type="button" class="btn btn-light rounded-0"><i class="fa fa-heart-o" aria-hidden="true"></i></button></div>
-                            <div style="padding: 0px 10px"><a href="{{ route('job.form', ['id' => $job->id]) }}"><button type="button" class="btn btn-dark rounded-0">Kirim Lamaran</button></a></div>
+                            <div style="padding: 0px 10px">
+                                @if ($job->closed_at < date('Y-m-d'))
+                                    <button type="button" class="btn btn-danger rounded-0" disabled>Tidak Menerima Lamaran</button>
+                                @else
+                                    <a href="{{ route('job.form', ['id' => $job->id]) }}"><button type="button" class="btn btn-dark rounded-0">Kirim Lamaran</button></a>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -78,6 +84,11 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
+                @if ($job->closed_at < date('Y-m-d'))
+                    <div class="alert alert-danger mb-4" role="alert">
+                        Pekerjaan ini sudah tidak menerima lamaran
+                    </div>
+                @endif
                 <div>
                     <button class="btn-description">{{ $job->type->name }}</button>
                     <button class="btn-description">{{ $job->city->name }}</button>
