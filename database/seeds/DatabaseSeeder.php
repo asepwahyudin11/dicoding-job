@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CitySeeder::class);
         $this->call(ExperienceSeeder::class);
         $this->call(JobSeeder::class);
+        $this->call(JobSkillRequirementSeeder::class);
     }
 }
