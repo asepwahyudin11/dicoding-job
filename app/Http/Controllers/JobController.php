@@ -10,13 +10,16 @@ use App\Models\Experience;
 use App\Models\Job;
 use App\Models\Candidate;
 use App\Models\JobSkillRequirement;
+use App\Mail\SenderEmail;
+use App\Mail\RecruiterEmail;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 
 class JobController extends Controller
 {
     public function list() 
     {
-        $data['skills'] = Skill::orderBy('id')->limit(5)->get();
+        $data['skills'] = Skill::all();
         $data['types'] = Type::all();
         $data['cities'] = City::all();
         $data['experiences'] = Experience::all();
@@ -136,7 +139,24 @@ class JobController extends Controller
             $data->skills = $request->skills;
             $data->uploaded_at = date('Y-m-d');
 
+            $dataMail1 = Array(
+                "name" => $request->name,
+                "email" => $request->email,
+                "title" => $job->title,
+                "company" => $job->company_name,
+            );
+
+            $dataMail2 = Array(
+                "name" => $job->created_by,
+                "email" => $job->created_email,
+                "title" => $job->title,
+                "company" => $job->company_name,
+            );
+
             if ($data->save()) {
+                Mail::to($dataMail1['email'])->send(new SenderEmail($dataMail1)); // Send Email To JobSeeker
+                Mail::to($dataMail2['email'])->send(new RecruiterEmail($dataMail2)); // Send Email To Recruiter
+
                 return redirect('/job/list')->with('success', 'Lamaran Anda sebagai '. $job->title .' terkirim ke '. $job->company_name .'!');
             } else {
                 return redirect('/job/'.$id.'/form')->with('error', 'Terjadi kesalahan dalam proses pengiriman lamaran!');
