@@ -64,7 +64,7 @@
                     </div>
                     <div class="col-4">
                         <div class="d-flex" style="padding:60px 0px">
-                            <div style="padding: 0px 10px"><button type="button" class="btn btn-light rounded-0"><i class="fa fa-share-alt" aria-hidden="true"></i></button></div>
+                            <div style="padding: 0px 10px"><button type="button" id="clipboard" class="btn btn-light rounded-0"><i class="fa fa-share-alt" aria-hidden="true"></i></button></div>
                             <div style="padding: 0px 10px"><button type="button" class="btn btn-light rounded-0"><i class="fa fa-heart-o" aria-hidden="true"></i></button></div>
                             <div style="padding: 0px 10px">
                                 @if ($job->closed_at < date('Y-m-d'))
@@ -74,6 +74,7 @@
                                 @endif
                             </div>
                         </div>
+                        <div id="snackbar"><i class="fa fa-files-o" aria-hidden="true"></i> Copy URL to Clipboard</div>
                     </div>
                 </div>
             </div>
@@ -116,3 +117,22 @@
         @include('partials/footer')
     </div>
 @endsection
+
+@push('after_footer_stack')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript">
+        var $temp = $("<input>");
+        var $url = $(location).attr('href');
+
+        $('#clipboard').on('click', function() {
+            $("body").append($temp);
+            $temp.val($url).select();
+            document.execCommand("copy");
+            $temp.remove();
+            
+            var x = document.getElementById("snackbar");
+            x.className = "show";
+            setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        })
+    </script>
+@endpush
