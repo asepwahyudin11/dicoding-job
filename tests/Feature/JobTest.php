@@ -35,7 +35,7 @@ class JobTest extends TestCase
      */
     public function testJobDescriptionPage()
     {
-        $response = $this->get('/job/1/description');
+        $response = $this->get('/job/14/description');
 
         $response->assertStatus(200);
         $response->assertViewIs('job.description');
